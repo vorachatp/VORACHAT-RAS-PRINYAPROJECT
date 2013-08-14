@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% autoescape true %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register Adminnistrator System</title>
+<style type="text/css">
+<!--
+-->
+</style>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <form id="form1" name="form1" method="get" action="/toggle">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" class="font2"><div style="margin-bottom:15px;">Register Adminnistrator System</div></td>
+  </tr>
+  <tr>
+    <td><table width="300" border="0" cellpadding="10" cellspacing="0" id="head">
+      <tr>
+        <td width="150" align="center" bgcolor="#FFFF99"><a href="course.html">Course</a></td>
+        <td width="150" align="center" bgcolor="#FFFF99"><a href="notification.html">Notification</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99">
+      <table width="900" border="0" cellpadding="10" cellspacing="0" id="row3">
+        <tr align="center">
+          <td width="200"><label>
+            <input type="text" name="keyword" id="keyword" />
+          </label></td>
+          <td width="250">Faculity
+            <label>
+              <select name="faculity" id="faculity">
+                <option value="EG">Engineering</option>
+                <option value="BA">Business Administration </option>
+                <option value="IT">Information Technology</option>
+              </select>
+            </label></td>
+          <td>Department
+            <label>
+              <select name="department" id="department">
+                <option value="IT">IT</option>
+                <option value="MT">MT</option>
+                <option value="BI">BI</option>
+                <option value="BA">BA</option>
+                <option value="IM">IM</option>
+                <option value="IB">IB</option>
+                <option value="BJ">BJ</option>
+                <option value="CE">CE</option>
+                <option value="PE">PE</option>
+                <option value="AE">AE</option>
+                <option value="EE">EE</option>
+                <option value="AC">AC</option>
+              </select>
+            </label></td>
+          <td width="120">Years 
+            <label>
+              <select name="year" id="year">
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+              </select>
+            </label></td>
+          <td width="110">Semester 
+            <label>
+              <select name="semester" id="semester">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label></td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFF99"><table width="900" border="0" cellpadding="5" cellspacing="0">
+      <tr class="font1">
+        <td width="100" align="center" bgcolor="#FFFF66">Code</td>
+        <td width="200" align="center" bgcolor="#FFFF66">Name</td>
+        <td width="100" align="center" bgcolor="#FFFF66">Credit</td>
+        <td width="100" align="center" bgcolor="#FFFF66">Enrolled</td>
+        <td width="150" align="center" bgcolor="#FFFF66">Status</td>
+        <td align="center" bgcolor="#FFFF66">&nbsp;</td>
+      </tr>
+            {% for row in course  %}
+      <tr>
+        <td align="center" bgcolor="#FFFFCC"><a href="http://prinya-ras-vorachat.appspot.com/DetailCourse?course_id={{ row[0]}}">{{ row[0] }}</a></td>
+        <td align="center" bgcolor="#FFFFCC">{{ row[1] }}</td>
+        <td align="center" bgcolor="#FFFFCC">
+<script type="text/javascript">
+        var lecture,lab,learning,credit
+        lecture={{row[2]}};
+        lab={{row[3]}};
+        learning={{row[4]}};
+        credit=(lab/3)+lecture;
+        document.write(credit+"("+lecture+"-"+lab+"-"+learning+")");
+</script>
+        </td>
+        <td align="center" bgcolor="#FFFFCC">100</td>
+        <td align="center" bgcolor="#FFFFCC">
+<script type="text/javascript">
+        if ({{ row[5] }}==1)
+        document.write("Active");
+        else
+        document.write("Inactive");
+
+</script>
+        </td>
+        <td align="center" bgcolor="#FFFFCC">
+<script type="text/javascript">
+
+        if ({{ row[5]}}==1){
+      document.write("<input type='submit' name='button' id='button' value='Disable'/>");
+
+    }else{
+      document.write("<input type='submit' name='button' id='button' value='Enable'/>");   
+    }
+</script>
+       </td>
+      </tr>
+            {% endfor %}
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF99"><table width="900" border="0" cellpadding="10" cellspacing="0" id="footer">
+      <tr>
+        <td style="font-size:16px"><a href="http://prinya-teerapol-ras.appspot.com">Create Course</a></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+    </form>
+</body>
+</html>
+{% endautoescape  %}

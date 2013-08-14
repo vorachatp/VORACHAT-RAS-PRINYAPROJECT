@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Create Course</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="css/script.js"></script>
+</head>
+<body>
+<form action="/Insert" method="post" enctype="multipart/form-data" onsubmit="return validate()">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><div class="font2" style="margin-bottom:15px;">Create Course</div></td>
+  </tr>
+  <tr>
+    <td><table width="900" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="150" align="right">Course Code ::</td>
+        <td width="300" align="left">
+        <span id="code">
+          <label>
+            <input type="text" name="course_code" id="course_code" />
+          </label>
+          </span>
+          </td>
+        <td align="right">&nbsp;</td>
+        <td align="left">&nbsp;</td>
+        </tr>
+      <tr>
+        <td width="150" align="right">Course Name ::</td>
+        <td width="300" align="left"><label>
+          <input type="text" name="course_name" id="course_name" />
+        </label></td>
+        <td width="150" align="right">&nbsp;</td>
+        <td width="120" align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="150" align="right">Prerequsite ::</td>
+        
+        <td align="left"><select name="prerequisite" id="prerequisite">
+          <option value="0"></option>          
+          {% for row in course %}
+            
+          <option value="{{ row[0] }}">{{ row[1] }}</option>
+          
+          {% endfor %}
+          
+        </select></td>
+        <td align="left">&nbsp;</td>
+        </tr>
+      <tr>
+        <td width="150" align="right">Faculity ::</td>
+        <td align="left"><select name="faculity" id="faculity">
+          <option value="1">Engineering</option>
+          <option value="2">Information Technology</option>
+          <option value="3">Business Administration</option>
+          <option value="4">Language</option>
+        </select></td>
+        <td width="150" align="right">&nbsp;</td>
+        <td width="120" align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="150" align="right">Dapartment</td>
+        <td width="300" align="left"><select name="department" id="department">
+          <option value="1">Infomation Technology</option>
+          <option value="2">Multimedia Technology </option>
+          <option value="3">Business Information Technology</option>
+          <option value="4">Accountancy</option>
+          <option value="5">Industrial Management</option>
+          <option value="6">International Business Management </option>
+          <option value="7">Japanese Businees Administration</option>
+          <option value="8">Computer Engineering</option>
+          <option value="9">Production Engineering </option>
+          <option value="10">Automotive Engineering </option>
+          <option value="11">Electrical Engineering</option>
+          <option value="12">Industrial Engineering</option>
+          <option value="13">Language</option>
+        </select></td>
+        <td width="150">&nbsp;</td>
+        <td width="120">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="150" align="right">Course Description ::</td>
+        <td colspan="3" align="left"><label>
+          <textarea name="course_description" id="course_description" cols="45" rows="5"></textarea>
+        </label></td>
+        </tr>
+      <tr>
+        <td colspan="4" id="Bold3"><table width="900" border="0" cellspacing="0" cellpadding="5">
+          <tr>
+            <td width="150" align="right">Credit Lecture ::</td>
+            <td width="100"><label>
+              <input name="credit_lecture" type="text" id="credit_lecture" maxlength="1" />
+            </label></td>
+            <td width="50">หน่วยกิต</td>
+            <td width="150"><select name="credit_type" id="credit_type">
+              <option value="0"></option>
+              <option value="1">กลุ่มวิชามนุษศาสตร์</option>
+              <option value="2">กลุ่มวิชาสังคมศาสตร์</option>
+              <option value="3">กลุ่มวิชาคณิตศาสตร์และวิทยาศาสตร์</option>
+              <option value="4">ภาษาต่างประเทศทั่วไป</option>
+              <option value="5">ภาษาต่างประเทศพิเศษ (JBJ)</option>
+              <option value="6">ภาษาไทย</option>
+              <option value="7">กลุ่มวิชาพลศึกษา</option>
+              <option value="8">วิชาเฉพาะ วิศวกรรม</option>
+              <option value="9">วิชาเฉพาะ เทคโนโลยีสารสนเทศ</option>
+              <option value="10">วิชาเฉพาะ บริหารธุรกิจ</option>
+              <option value="11">รายวิชาปฏิบัติการ ดูงาน</option>
+              <option value="12">รายวิชาสหกิจศึกษา / ฝึกงาน / โครงงาน</option>
+              <option value="13">รายวิชาเตรียมสหกิจศึกษา</option>
+            </select></td>
+            </tr>
+          <tr>
+            <td width="150" align="right">Credit Lab :: </td>
+            <td width="100"><label>
+              <input name="credit_lab" type="text" id="credit_lab" maxlength="1" />
+            </label></td>
+            <td width="50">หน่วยกิต</td>
+            <td width="150"><select name="credit_type2" id="credit_type2">
+              <option value="0"></option>
+              <option value="1">กลุ่มวิชามนุษศาสตร์</option>
+              <option value="2">กลุ่มวิชาสังคมศาสตร์</option>
+              <option value="3">กลุ่มวิชาคณิตศาสตร์และวิทยาศาสตร์</option>
+              <option value="4">ภาษาต่างประเทศทั่วไป</option>
+              <option value="5">ภาษาต่างประเทศพิเศษ (JBJ)</option>
+              <option value="6">ภาษาไทย</option>
+              <option value="7">กลุ่มวิชาพลศึกษา</option>
+              <option value="8">วิชาเฉพาะ วิศวกรรม</option>
+              <option value="9">วิชาเฉพาะ เทคโนโลยีสารสนเทศ</option>
+              <option value="10">วิชาเฉพาะ บริหารธุรกิจ</option>
+              <option value="11">รายวิชาปฏิบัติการ ดูงาน</option>
+              <option value="12">รายวิชาสหกิจศึกษา / ฝึกงาน / โครงงาน</option>
+              <option value="13">รายวิชาเตรียมสหกิจศึกษา</option>
+            </select></td>
+            </tr>
+          <tr>
+            <td width="150" align="right">Credit Learning ::</td>
+            <td width="100"><label>
+              <input name="credit_learning" type="text" id="credit_learning" maxlength="1" />
+            </label></td>
+            <td width="50">หน่วยกิต</td>
+            <td width="150"></td>
+            </tr>
+          </table></td>
+      </tr>
+
+    </table></td>
+  </tr>
+  <tr>
+    <td align="right">
+    <table width="450" border="0" cellpadding="10" cellspacing="0" id="footer">
+      <tr class="font2">
+        <td width="100" align="center">
+        <input style="width:140px; height:30px;" type="submit" name="submit" id="submit" value="Submit"  onclick="return confirm('Are you sure CREATE COURSE','Create Course')"  />
+        </td>
+        <td width="100" align="center">
+        <input style="width:140px; height:30px;" type="reset" name="Reset" id="Reset" value="Reset" />
+        </td>
+        <td width="100" align="center">
+        <input style="width:140px; height:30px;" type="button" name="back" id="back" value="Back" onClick="window.history.back()" />
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

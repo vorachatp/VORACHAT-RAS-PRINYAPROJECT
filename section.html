@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Add Section</title>
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><div class="font2" style=" margin-top:10px; margin-bottom:15px;">Add Section</div></td>
+  </tr>
+  <tr>
+    <td align="center">
+      <form id="form1" name="form1" method="post" action="/InsSection">
+        <table width="500" border="0" cellspacing="0" cellpadding="5">
+          <tr>
+            <td width="150" align="right" bgcolor="#FFFF66">Section Number ::</td>
+            <td bgcolor="#FFFFCC"><input type="text" name="section_number" id="section_number" /></td>
+          </tr>
+          <tr>
+            <td width="150" align="right" bgcolor="#FFFF66">Teacher ::</td>
+            <td bgcolor="#FFFFCC"><input type="text" name="teacher" id="teacher" /></td>
+          </tr>
+          <tr>
+            <td width="150" align="right" bgcolor="#FFFF66">Capacity ::</td>
+            <td bgcolor="#FFFFCC"><label>
+              <input type="text" name="capacity" id="capacity" />
+            </label></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><label>
+              <input type="hidden" id="course_id" name="course_id" value="{{ course_id }}"/>
+              <input type="submit" name="submit" id="submit" value="Add Section" onclick="return confirm('Are you sure CREATE SECTION')" />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/ModifyCourse?course_id={{ course_id }}"><input type="button" name="reset" id="reset" value="Back" /></a>
+            </label></td>
+          </tr>
+        </table>
+    </form></td>
+  </tr>
+</table>
+</body>
+</html>

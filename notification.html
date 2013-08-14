@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register Adminnistrator System</title>
+<style type="text/css">
+<!--
+-->
+</style>
+<link href="file:///C|/Users/Tharnnapat/Desktop/tni-ras/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <form id="form1" name="form1" method="get" action="/toggle">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" class="font2"><div style="margin-bottom:15px;">Register Adminnistrator System</div></td>
+  </tr>
+  <tr>
+    <td><table width="300" border="0" cellpadding="10" cellspacing="0" id="head">
+      <tr>
+        <td width="150" align="center" bgcolor="#FFFF99"><a href="file:///C|/Users/Tharnnapat/Desktop/tni-ras/course.html">Course</a></td>
+        <td width="150" align="center" bgcolor="#FFFF99"><a href="file:///C|/Users/Tharnnapat/Desktop/tni-ras/notification.html">Notification</a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFF99">
+    <div style="margin-top:10px; margin-bottom:10px;">
+    <table width="880" border="0" cellspacing="0" cellpadding="5">
+    {% for row in .. %}
+      <tr>
+        <td colspan="2" bgcolor="#FFFF66">
+        Course Name :: {{ row[0] }} Has been 
+        <script>
+		var type="{{row3}}";
+		if(type==1){
+			document.write("Create");
+		}else if(type==2){
+			document.write("Modify");
+			}
+		else{
+			document.write("Delete")
+			}
+		</script>
+        {{ row[]}} 
+        </td>
+        </tr>
+      <tr>
+        <td bgcolor="#FFFF66">&nbsp;</td>
+        <td bgcolor="#FFFF66">&nbsp;</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+    </td>
+  </tr>
+
+</table>
+    </form>
+</body>
+</html>
